@@ -1,0 +1,35 @@
+﻿@model Student //strongly typed 
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <form method="post" asp-action="create" asp-controller="student">
+        <input asp-for="id" />
+        <span class="field-validation" asp-validation-for="id"></span>
+        <br />
+        <input asp-for="name" />
+        <span class="field-validation" asp-validation-for="name"></span>
+        <br />
+        <input asp-for="age" />
+        <span class="field-validation" asp-validation-for="age"></span>
+        <br />
+         <input asp-for="userName" />
+        <span class="field-validation" asp-validation-for="userName"></span>
+        <br />
+        <input type="submit" class="btn-primary" value="Add" />
+    </form>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+</body>
+</html>

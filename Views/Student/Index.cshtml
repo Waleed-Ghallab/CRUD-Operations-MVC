@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Student> //to use foreach the collection must impliments ienumerable
+@{
+    Layout = null;
+    
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+</head>
+<body>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model )
+            {
+                <tr>
+                    <td>@item.id</td>
+                    <td>@item.name</td>
+                    <td>@item.age</td>
+                    <td>
+                        <a href="/student/details/@item.id" class="btn btn-primary">Details</a>
+                        <a asp-action="edit" asp-controller="student" asp-route-id="@item.id" class="btn btn-primary btn-danger">Edit</a>
+                        <a asp-action="delete" asp-controller="student" asp-route-id="@item.id" class="btn btn-primary btn-danger" onclick='return confirm("r u sure?")'>Delete</a>
+                    </td>
+                    
+                </tr>
+            }
+        </tbody>
+    </table>
+        <a href="/student/create" class="btn btn-primary">
+            Create Student
+        </a>
+   
+    
+</body>
+</html>
